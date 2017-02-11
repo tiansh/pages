@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>loading circle</title>
+  <style>
+  .loading {
+    --loading-size: 100px;
+    --loading-color: #8cf;
+    --loading-cycle-time: 1.5s;
+  }
+
+  @keyframes loading0 {
+    from {
+      transform: rotate(0deg);
+    }
+    60% {
+      transform: rotate(36deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes loading1 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes loading2 {
+    from {
+      transform: rotate(180deg);
+    }
+    40% {
+      transform: rotate(360deg);
+    }
+    60% {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(180deg);
+    }
+  }
+
+  @keyframes loading3 {
+    from {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(264deg);
+    }
+    60% {
+      transform: rotate(336deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .loading {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-0.5 * var(--loading-size)), calc(-0.5 * var(--loading-size)));
+    width: var(--loading-size);
+    height: var(--loading-size);
+  }
+  .loading {
+    --start-angle: 0deg;
+    --end-angle: 100deg;
+  }
+  .arc {
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+  .wrap {
+    display: block;
+    position: absolute;
+    top: 0; left: 50%;
+    width: 50%;
+    height: 100%;
+    transform-origin: center left;
+    overflow: hidden;
+  }
+  .inner {
+    display: block;
+    position: absolute;
+    top: 0; left: -100%;
+    width: 200%;
+    height: 100%;
+  }
+  .loading {
+  }
+  .arc1, .arc2 {
+    animation: loading0 var(--loading-cycle-time) linear 0s infinite;
+  }
+  .arc1 .wrap1 {
+    animation: loading1 var(--loading-cycle-time) linear 0s infinite;
+  }
+  .arc1 .wrap2 {
+    animation: loading2 var(--loading-cycle-time) linear 0s infinite;
+  }
+  .arc2 .wrap1 {
+    animation: loading3 var(--loading-cycle-time) linear 0s infinite;
+  }
+  .arc2 .wrap2 {
+    animation: loading2 var(--loading-cycle-time) linear 0s infinite;
+  }
+  .circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: calc(var(--loading-size) * 0.05) solid var(--loading-color);
+    border-radius: 100%;
+  }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="arc arc1 container">
+      <div class="wrap wrap1">
+        <div class="inner inner1 container">
+          <div class="wrap wrap2">
+            <div class="inner inner2 container">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arc arc2 container">
+      <div class="wrap wrap1">
+        <div class="inner inner1 container">
+          <div class="wrap wrap2">
+            <div class="inner inner2 container">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
